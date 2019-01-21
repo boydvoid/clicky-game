@@ -2,8 +2,8 @@ import React from 'react'
 
 const ClickyImage = (props) => {
   return (
-    <div className={"numberDiv " + props.class}>
-      <h1>{props.numbers}</h1>
+    <div >
+      <h1 className={"numberDiv " + props.class} onClick={props.click} data-num={props.numbers}>{props.numbers}</h1>
     </div>
   )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
-    <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand" href="#">Clicky-Game</a>
+    <nav className="navbar navbar-light bg-light">
+          <a className="navbar-brand" href="#">Clicky-Game</a>
+          <span><h1>SCORE: {props.score}</h1></span>
         </nav>
   )
 }
