@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 import './App.css';
 import ClickyImage from './Components/ClickyImage/ClickyImage'
 import Navbar from './Components/Navbar/Navbar'
+
+let originalArray =[
+  {number: "1", class:"not-clicked"},
+  {number: "2", class:"not-clicked"},
+  {number: "3", class:"not-clicked"},
+  {number: "4", class:"not-clicked"},
+  {number: "5", class:"not-clicked"},
+  {number: "6", class:"not-clicked"},
+  {number: "7", class:"not-clicked"},
+  {number: "8", class:"not-clicked"},
+  {number: "9", class:"not-clicked"},
+  {number: "10", class:"not-clicked"},
+  {number: "11", class:"not-clicked"},
+  {number: "12", class:"not-clicked"},
+];
 class App extends Component {
   state={
-    numbers: [
-      {number: "1", class:"not-clicked"},
-      {number: "2", class:"not-clicked"},
-      {number: "3", class:"not-clicked"},
-      {number: "4", class:"not-clicked"},
-      {number: "5", class:"not-clicked"},
-      {number: "6", class:"not-clicked"},
-      {number: "7", class:"not-clicked"},
-      {number: "8", class:"not-clicked"},
-      {number: "9", class:"not-clicked"},
-      {number: "10", class:"not-clicked"},
-      {number: "11", class:"not-clicked"},
-      {number: "12", class:"not-clicked"},
-    ],
+    numbers: originalArray,
     score: 0
   }
 
@@ -60,13 +62,29 @@ class App extends Component {
       this.setState({
         score: this.state.score + 1
       })
+
+      this.checkWin();
     } else {
       alert("You lose");
 
       this.setState({
+        number: originalArray,
         score: 0
       })
 
+      this.randomizeNumbers();
+    }
+  }
+
+  checkWin = () => {
+    if(this.state.score == 11){
+      alert("You Win");
+  
+      
+      this.setState({
+        number: originalArray,
+        score: 0
+      })
       this.randomizeNumbers();
     }
   }
